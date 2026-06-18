@@ -1,0 +1,22 @@
+:root {
+  color-scheme: dark;
+  --bg: #0A0A0F;
+  --bg-soft: #12121A;
+  --ink: #F4F1EC;
+  --ink-dim: #A9A6B2;
+  --line: #23222C;
+  /* rose-gold / platinum only — never yellow gold */
+  --rose: #E8B4A0;
+  --rose-deep: #C98B73;
+  --platinum: #D8D8DE;
+  --halo: rgba(232,180,160,0.18);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
