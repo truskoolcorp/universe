@@ -1,0 +1,123 @@
+// ───────────────────────────────────────────────────────────────────────────
+// THE TRU SKOOL UNIVERSE — brand directory (single source of truth)
+//
+// Trademark usage (per Keith, locked):
+//   ® → Tru Skool, Faithfully Faded, Café Sativa
+//   ™ → everything else
+//
+// Content rules honored: rose-gold / platinum only (never yellow gold);
+// botanical / lifestyle framing for Café Sativa + Cold Stoned (no explicit
+// cannabis wording).
+//
+// URLs marked CONFIRM should be verified before launch. Unconfirmed brands
+// route to the parent family front door (truskool.net) so every star stays
+// a live link, never a dead placeholder.
+// ───────────────────────────────────────────────────────────────────────────
+
+export const LANES = [
+  { id: "fashion",   label: "Fashion & Streetwear" },
+  { id: "music",     label: "Music" },
+  { id: "travel",    label: "Travel" },
+  { id: "realestate",label: "Real Estate" },
+  { id: "cafe",      label: "Café & Lifestyle" },
+  { id: "ai",        label: "AI & Business" },
+];
+
+// glyph: matches the line-glyph system already designed for the constellation.
+export const BRANDS = [
+  {
+    key: "truskool", name: "Tru Skool", mark: "®", core: true,
+    glyph: "core", url: "https://truskool.net",
+    blurb: "The parent. Culture. Commerce. Code.",
+    lanes: ["fashion","music","travel","realestate","cafe","ai"],
+  },
+  {
+    key: "faithfullyfaded", name: "Faithfully Faded", mark: "®",
+    glyph: "bars", url: "https://faithfullyfaded.net",
+    blurb: "Streetwear with a story.",
+    lanes: ["fashion"],
+  },
+  {
+    key: "hoe", name: "H.O.E.", mark: "™",
+    glyph: "sunburst", url: "https://hoeonline.us",
+    blurb: "Happiness Over Everything.",
+    lanes: ["fashion"],
+  },
+  {
+    key: "concreterose", name: "Concrete Rose", mark: "™",
+    glyph: "bloom", url: "https://truskool.net", confirm: true,
+    blurb: "Grown through the cracks.",
+    lanes: ["fashion","cafe"],
+  },
+  {
+    key: "bijadi", name: "BiJaDi", mark: "™",
+    glyph: "gem", url: "https://bijadi.net",
+    blurb: "Beyond Enough.",
+    lanes: ["fashion"],
+  },
+  {
+    key: "versealkemist", name: "THE Verse Alkemist", mark: "™",
+    glyph: "triangle", url: "https://versealkemist.net",
+    blurb: "Turning lived experience into sound.",
+    lanes: ["music"],
+  },
+  {
+    key: "wanderlust", name: "Wanderlust", mark: "™",
+    glyph: "compass", url: "https://dallasiteontour.org", confirm: true,
+    blurb: "Go further.",
+    lanes: ["travel"],
+  },
+  {
+    key: "dot", name: "D.o.T.", mark: "™",
+    glyph: "pin", url: "https://dallasiteontour.org",
+    blurb: "Dallasite on Tour. Dallas raised me. The world finished the job.",
+    lanes: ["travel"],
+  },
+  {
+    key: "t360", name: "T-360", mark: "™",
+    glyph: "orbit", url: "https://truskool.net", confirm: true,
+    blurb: "Tenerife, in full circle.",
+    lanes: ["travel","realestate"],
+  },
+  {
+    key: "impact", name: "IMPACT", mark: "™",
+    glyph: "arch", url: "https://truskool.net", confirm: true,
+    blurb: "Mediterranean properties & Canary tourism.",
+    lanes: ["realestate"],
+  },
+  {
+    key: "cafesativa", name: "Café Sativa", mark: "®",
+    glyph: "leaf", url: "https://cafe-sativa.com",
+    blurb: "Sip. Smoke. Vibe.",
+    lanes: ["cafe"],
+  },
+  {
+    key: "coldstoned", name: "Cold Stoned", mark: "™",
+    glyph: "snowflake", url: "https://cold-stoned.com",
+    blurb: "Botanical gelato. Slow and cold.",
+    lanes: ["cafe"],
+  },
+  {
+    key: "glyph", name: "G.L.Y.P.H.", mark: "™",
+    glyph: "hex", url: "https://command.truskool.net",
+    blurb: "Eight minds. One mission. Codified for legacy.",
+    lanes: ["ai"],
+  },
+  {
+    key: "truskoolai", name: "Tru Skool AI", mark: "™",
+    glyph: "spark", url: "https://ai.truskool.net",
+    blurb: "Creativity, Amplified.",
+    lanes: ["ai"],
+  },
+];
+
+// Productized studio menu — wire each href to your real Book / Shop links.
+export const SERVICES = [
+  { name: "Persona Starter",  note: "One AI brand persona, ready to post." },
+  { name: "Persona Pro",      note: "Full voice + avatar + content engine." },
+  { name: "Drop Kit",         note: "Launch a product drop end to end." },
+  { name: "Artist Mini-Kit",  note: "Single release, packaged to ship." },
+  { name: "Brand Sheet",      note: "Colors, type, marks, usage — locked." },
+  { name: "Link-in-bio",      note: "One clean front door for your links." },
+  { name: "Logo Cleanup",     note: "Your mark, redrawn as crisp vector." },
+];
