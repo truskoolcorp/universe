@@ -197,7 +197,17 @@ function Node({ b, x, y, matched, dim, isCore }) {
         opacity: dim ? 0.32 : 1,
         transition: "all .22s ease", cursor: "pointer", textAlign: "center",
       }}>
-      <Glyph kind={b.glyph} size={isCore ? 30 : 24} />
+      {b.logo ? (
+        <img src={b.logo} alt={`${b.name} logo`} loading="lazy"
+          style={{
+            width: isCore ? sz * 0.80 : sz * 0.84,
+            height: isCore ? sz * 0.80 : sz * 0.84,
+            objectFit: "contain", borderRadius: "50%",
+            display: "block", pointerEvents: "none",
+          }} />
+      ) : (
+        <Glyph kind={b.glyph} size={isCore ? 30 : 24} />
+      )}
     </a>
   );
 }
@@ -208,7 +218,12 @@ function Card({ b }) {
     <a href={b.url} target="_blank" rel="noopener noreferrer"
       style={{ display: "block", padding: 18, border: "1px solid var(--line)", borderRadius: 16, background: "var(--bg-soft)", transition: "border-color .18s ease" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, color: "var(--rose)" }}>
-        <Glyph kind={b.glyph} size={22} />
+        {b.logo ? (
+          <img src={b.logo} alt={`${b.name} logo`} loading="lazy"
+            style={{ width: 30, height: 30, objectFit: "contain", display: "block", flex: "0 0 auto" }} />
+        ) : (
+          <Glyph kind={b.glyph} size={22} />
+        )}
         <strong style={{ fontSize: 16 }}>{b.name}<span style={{ color: "var(--ink-dim)", fontWeight: 400 }}>{b.mark}</span></strong>
       </div>
       <p style={{ margin: 0, fontSize: 14, color: "var(--ink-dim)" }}>{b.blurb}</p>
