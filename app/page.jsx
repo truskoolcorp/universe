@@ -214,10 +214,13 @@ function Node({ b, x, y, matched, dim, isCore }) {
 
 /* ── Matched brand card ──────────────────────────────────────────────────── */
 function Card({ b }) {
+  const hasLinks = b.links && b.links.length > 0;
+  const typeIcon = { podcast: "🎙", video: "▶", app: "◆", store: "◇", music: "♬" };
   return (
-    <a href={b.url} target="_blank" rel="noopener noreferrer"
-      style={{ display: "block", padding: 18, border: "1px solid var(--line)", borderRadius: 16, background: "var(--bg-soft)", transition: "border-color .18s ease" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, color: "var(--rose)" }}>
+    <div
+      style={{ padding: 18, border: "1px solid var(--line)", borderRadius: 16, background: "var(--bg-soft)", transition: "border-color .18s ease" }}>
+      <a href={b.url} target="_blank" rel="noopener noreferrer"
+        style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, color: "var(--rose)", textDecoration: "none" }}>
         {b.logo ? (
           <img src={b.logo} alt={`${b.name} logo`} loading="lazy"
             style={{ width: 30, height: 30, objectFit: "contain", display: "block", flex: "0 0 auto" }} />
@@ -225,8 +228,25 @@ function Card({ b }) {
           <Glyph kind={b.glyph} size={22} />
         )}
         <strong style={{ fontSize: 16 }}>{b.name}<span style={{ color: "var(--ink-dim)", fontWeight: 400 }}>{b.mark}</span></strong>
-      </div>
+      </a>
       <p style={{ margin: 0, fontSize: 14, color: "var(--ink-dim)" }}>{b.blurb}</p>
-    </a>
+      {hasLinks && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
+          {b.links.map((lk, i) => (
+            <a key={i} href={lk.href} target="_blank" rel="noopener noreferrer"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 4,
+                fontSize: 11, padding: "3px 8px", borderRadius: 20,
+                border: "1px solid var(--rose)", color: "var(--rose)",
+                textDecoration: "none", opacity: 0.85, transition: "opacity .15s ease",
+                whiteSpace: "nowrap",
+              }}>
+              <span style={{ fontSize: 10, lineHeight: 1 }}>{typeIcon[lk.type] || "→"}</span>
+              {lk.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
