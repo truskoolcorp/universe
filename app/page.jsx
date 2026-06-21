@@ -48,7 +48,7 @@ export default function Page() {
   }, []);
 
   const isMatch = (b) => active.length === 0 || b.lanes.some((l) => active.includes(l));
-  const matched = active.length === 0 ? [] : orbiting.filter(isMatch);
+  const matched = active.length === 0 ? orbiting : orbiting.filter(isMatch);
 
   async function join() {
     if (status === "sending") return;
@@ -125,11 +125,13 @@ export default function Page() {
         ))}
       </section>
 
-      {/* Matched cards */}
+      {/* Brand cards */}
       {matched.length > 0 && (
         <section style={{ margin: "28px 0 8px" }}>
           <h2 style={{ fontSize: 14, letterSpacing: 2, textTransform: "uppercase", color: "var(--ink-dim)", textAlign: "center" }}>
-            Your lanes — {matched.length} world{matched.length > 1 ? "s" : ""}
+            {active.length === 0
+              ? `Explore the universe — ${matched.length} brands`
+              : `Your lanes — ${matched.length} world${matched.length > 1 ? "s" : ""}`}
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14, marginTop: 16 }}>
             {matched.map((b) => <Card key={b.key} b={b} />)}
